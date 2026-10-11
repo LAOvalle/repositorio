@@ -1,4 +1,6 @@
-/* Variables de Diseño */
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   ========================================================================== */
 :root {
     --bg-base: #F9F8F6;
     --bg-alt: #EFECE7;
@@ -11,7 +13,6 @@
     --border-light: rgba(0, 0, 0, 0.08);
 }
 
-/* Reset */
 * { 
     box-sizing: border-box; 
     margin: 0; 
@@ -37,12 +38,14 @@ h1, h2, h3, h4, .logo {
     letter-spacing: -0.02em;
 }
 
-/* Navegación */
+/* ==========================================================================
+   2. NAVEGACIÓN Y MENÚ DESPLEGABLE
+   ========================================================================== */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
+    padding: 18px 8%;
     background-color: rgba(249, 248, 246, 0.95);
     backdrop-filter: blur(10px);
     position: sticky;
@@ -51,25 +54,103 @@ nav {
     border-bottom: 1px solid var(--border-light);
 }
 
-.logo { font-size: 1.4rem; text-decoration: none; font-weight: 700; }
+.logo { 
+    font-size: 1.35rem; 
+    text-decoration: none; 
+    font-weight: 700; 
+    color: var(--text-main);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 24px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-light);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+.nav-links a:hover, 
+.nav-links a.active { 
+    color: var(--accent); 
+}
 
-/* Botones */
+/* Desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background-color: var(--bg-alt);
+    color: var(--text-main);
+    border: 1px solid var(--border-light);
+    padding: 9px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.dropdown-btn:hover {
+    background-color: #E2DDD5;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    background-color: white;
+    min-width: 240px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    padding: 8px 0;
+    z-index: 1001;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: var(--text-main);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.88rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--bg-base);
+    color: var(--accent);
+}
+
+.dropdown-divider {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 6px 0;
+}
+
+/* ==========================================================================
+   3. BOTONES Y COMPONENTES REUTILIZABLES
+   ========================================================================== */
 .btn {
     display: inline-block;
     background-color: var(--accent);
@@ -99,7 +180,7 @@ nav {
 .btn-outline {
     background-color: transparent;
     color: var(--text-main);
-    border: 1px solid var(--text-main);
+    border: 1.5px solid var(--text-main);
 }
 
 .btn-outline:hover {
@@ -107,7 +188,6 @@ nav {
     color: white;
 }
 
-/* Estructura general de secciones */
 .section-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -125,8 +205,8 @@ nav {
 
 .section-subtitle {
     display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.82rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--secondary-accent);
@@ -140,7 +220,42 @@ nav {
     font-size: 1.05rem;
 }
 
-/* Hero */
+/* ==========================================================================
+   4. ICONOS VECTORIALES (SUSTITUCIÓN DE EMOJIS)
+   ========================================================================== */
+.card-icon, .contact-icon {
+    width: 28px;
+    height: 28px;
+    stroke: var(--accent);
+    stroke-width: 1.8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.modality-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.modality-icon {
+    width: 20px;
+    height: 20px;
+    stroke: var(--secondary-accent);
+    stroke-width: 1.8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   5. HERO Y CITA INICIAL
+   ========================================================================== */
 .hero {
     display: flex;
     align-items: center;
@@ -150,14 +265,17 @@ nav {
     gap: 50px;
 }
 
-.hero-content { flex: 1; max-width: 620px; }
+.hero-content { 
+    flex: 1; 
+    max-width: 620px; 
+}
 
 .hero-tag {
     display: inline-block;
     background-color: var(--bg-alt);
     padding: 6px 16px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     margin-bottom: 25px;
@@ -170,7 +288,10 @@ nav {
     margin-bottom: 25px;
 }
 
-.hero h1 i { font-style: italic; color: var(--accent); }
+.hero h1 i { 
+    font-style: italic; 
+    color: var(--accent); 
+}
 
 .hero p {
     font-size: 1.1rem;
@@ -193,32 +314,34 @@ nav {
 .hero-image {
     width: 100%;
     max-width: 480px;
-    height: 600px;
+    height: 580px;
     background-color: #E2DDD5;
     border-radius: 20px 20px 20px 180px;
     overflow: hidden;
-    background-image: url('https://via.placeholder.com/500x650?text=Luis+Ovalle'); 
+    background-image: url('img/luis-ovalle.jpg'); 
     background-size: cover;
     background-position: center;
+    border: 1px solid var(--border-light);
 }
 
-/* Cita */
 .quote-section {
     background-color: var(--secondary-accent);
     color: white;
     text-align: center;
-    padding: 80px 8%;
+    padding: 70px 8%;
 }
 
 .quote-section h2 {
-    font-size: 2.1rem;
+    font-size: 2rem;
     color: white;
     max-width: 850px;
     margin: 0 auto;
     line-height: 1.4;
 }
 
-/* Marco Clínico */
+/* ==========================================================================
+   6. MARCO CLÍNICO, SERVICIOS Y ESPECIALIDADES
+   ========================================================================== */
 .framework-section {
     padding: 90px 8%;
     background-color: var(--bg-alt);
@@ -227,7 +350,7 @@ nav {
 .framework-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
+    gap: 35px;
 }
 
 .framework-item {
@@ -235,6 +358,7 @@ nav {
     padding: 40px;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-light);
 }
 
 .framework-badge {
@@ -253,10 +377,9 @@ nav {
 
 .framework-item p {
     color: var(--text-light);
-    font-size: 0.98rem;
+    font-size: 0.96rem;
 }
 
-/* Servicios / Áreas de trabajo */
 .services {
     padding: 100px 8%;
     background-color: var(--bg-base);
@@ -276,16 +399,42 @@ nav {
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: transform 0.3s ease;
 }
 
-.service-card:hover { transform: translateY(-5px); }
+.service-card:hover { 
+    transform: translateY(-5px); 
+}
 
-.card-icon { font-size: 2.2rem; margin-bottom: 20px; }
-.service-card h3 { font-size: 1.35rem; margin-bottom: 14px; }
-.service-card p { color: var(--text-light); font-size: 0.93rem; }
+.service-card h3 { 
+    font-size: 1.35rem; 
+    margin-bottom: 12px; 
+}
 
-/* Proceso en pasos */
+.service-card p { 
+    color: var(--text-light); 
+    font-size: 0.93rem; 
+    margin-bottom: 20px; 
+}
+
+.card-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.card-link:hover { 
+    text-decoration: underline; 
+}
+
+/* ==========================================================================
+   7. PROCESO TERAPÉUTICO (PASOS)
+   ========================================================================== */
 .process-section {
     padding: 100px 8%;
     background-color: white;
@@ -313,10 +462,19 @@ nav {
     margin-bottom: 8px;
 }
 
-.step-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-.step-card p { color: var(--text-light); font-size: 0.92rem; }
+.step-card h3 { 
+    font-size: 1.25rem; 
+    margin-bottom: 12px; 
+}
 
-/* Tarifas */
+.step-card p { 
+    color: var(--text-light); 
+    font-size: 0.92rem; 
+}
+
+/* ==========================================================================
+   8. TARIFAS Y MODALIDADES
+   ========================================================================== */
 .pricing-section {
     padding: 100px 8%;
     background-color: var(--bg-base);
@@ -339,7 +497,10 @@ nav {
     margin-bottom: 35px;
 }
 
-.pricing-header h3 { font-size: 1.6rem; margin-bottom: 10px; }
+.pricing-header h3 { 
+    font-size: 1.6rem; 
+    margin-bottom: 10px; 
+}
 
 .pricing-amount {
     font-size: 3.2rem;
@@ -355,7 +516,11 @@ nav {
     font-weight: 400;
 }
 
-.pricing-note { color: var(--text-light); font-size: 0.95rem; margin-top: 10px; }
+.pricing-note { 
+    color: var(--text-light); 
+    font-size: 0.95rem; 
+    margin-top: 10px; 
+}
 
 .modalities-grid {
     display: grid;
@@ -364,20 +529,35 @@ nav {
     margin-bottom: 35px;
 }
 
-.modality-item h4 { font-size: 1.15rem; margin-bottom: 10px; }
-.modality-item p { color: var(--text-light); font-size: 0.92rem; margin-bottom: 8px; }
-.modality-condition { color: var(--secondary-accent) !important; font-size: 0.88rem !important; }
+.modality-item h4 { 
+    font-size: 1.15rem; 
+}
 
-.pricing-cta { text-align: center; }
+.modality-item p { 
+    color: var(--text-light); 
+    font-size: 0.92rem; 
+    margin-bottom: 8px; 
+}
 
-/* FAQ Acordeón */
+.modality-condition { 
+    color: var(--secondary-accent) !important; 
+    font-size: 0.88rem !important; 
+}
+
+.pricing-cta { 
+    text-align: center; 
+}
+
+/* ==========================================================================
+   9. PREGUNTAS FRECUENTES (ACORDEÓN DETAILS/SUMMARY)
+   ========================================================================== */
 .faq-section {
     padding: 100px 8%;
     background-color: var(--bg-alt);
 }
 
 .faq-container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
 }
 
@@ -390,26 +570,26 @@ nav {
 }
 
 .faq-question {
-    padding: 22px 28px;
+    padding: 20px 25px;
     font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
     list-style: none;
     position: relative;
     user-select: none;
-    transition: background-color 0.2s;
 }
 
-.faq-question::-webkit-details-marker { display: none; }
+.faq-question::-webkit-details-marker { 
+    display: none; 
+}
 
 .faq-question::after {
     content: '+';
     position: absolute;
-    right: 28px;
+    right: 25px;
     font-size: 1.4rem;
     font-weight: 400;
     color: var(--accent);
-    line-height: 1;
 }
 
 .faq-item[open] .faq-question::after {
@@ -421,23 +601,19 @@ nav {
 }
 
 .faq-answer {
-    padding: 22px 28px;
+    padding: 20px 25px;
     color: var(--text-light);
     font-size: 0.95rem;
     line-height: 1.7;
 }
 
-/* Contacto y Canales de Reserva */
-.contact-section {
-    padding: 100px 8%;
-    background-color: var(--bg-base);
-}
-
+/* ==========================================================================
+   10. CONTACTO Y PIE DE PÁGINA
+   ========================================================================== */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
-    margin-bottom: 50px;
 }
 
 .contact-card {
@@ -451,25 +627,17 @@ nav {
     justify-content: space-between;
 }
 
-.contact-icon { font-size: 2.2rem; margin-bottom: 15px; }
-.contact-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-.contact-card p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 25px; }
-
-.location-banner {
-    background: white;
-    padding: 35px 30px;
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--secondary-accent);
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: center;
+.contact-card h3 { 
+    font-size: 1.3rem; 
+    margin-bottom: 10px; 
 }
 
-.location-banner h4 { font-size: 1.2rem; margin-bottom: 8px; }
-.location-banner p { color: var(--text-light); font-size: 0.95rem; }
-.location-note { font-size: 0.85rem !important; margin-top: 6px; opacity: 0.8; }
+.contact-card p { 
+    color: var(--text-light); 
+    font-size: 0.9rem; 
+    margin-bottom: 25px; 
+}
 
-/* Footer */
 footer {
     background-color: var(--bg-alt);
     padding: 60px 8% 30px;
@@ -492,10 +660,12 @@ footer {
     text-decoration: none;
     margin: 0 12px;
     font-size: 0.85rem;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 }
 
-.footer-legal-nav a:hover { color: var(--accent); }
+.footer-legal-nav a:hover { 
+    color: var(--accent); 
+}
 
 .copyright {
     font-size: 0.8rem !important;
@@ -503,14 +673,49 @@ footer {
     margin-top: 15px;
 }
 
-/* Responsividad */
+/* ==========================================================================
+   11. ADAPTACIÓN A DISPOSITIVOS MÓVILES (RESPONSIVE)
+   ========================================================================== */
 @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .hero { flex-direction: column-reverse; padding-top: 40px; text-align: center; }
-    .hero-buttons { justify-content: center; }
-    .hero h1 { font-size: 2.6rem; }
-    .hero-image-wrapper { justify-content: center; width: 100%; }
-    .hero-image { height: 420px; border-radius: 20px; }
-    .quote-section h2 { font-size: 1.6rem; }
-    .pricing-amount { font-size: 2.6rem; }
+    .nav-links { 
+        display: none; 
+    }
+    
+    .hero { 
+        flex-direction: column-reverse; 
+        padding-top: 40px; 
+        text-align: center; 
+    }
+    
+    .hero-buttons { 
+        justify-content: center; 
+    }
+    
+    .hero h1 { 
+        font-size: 2.5rem; 
+    }
+    
+    .hero-image-wrapper { 
+        justify-content: center; 
+        width: 100%; 
+    }
+    
+    .hero-image { 
+        height: 400px; 
+        border-radius: 20px; 
+    }
+    
+    .quote-section h2 { 
+        font-size: 1.6rem; 
+    }
+    
+    .pricing-amount { 
+        font-size: 2.6rem; 
+    }
+    
+    .specialty-block { 
+        grid-template-columns: 1fr !important; 
+        gap: 20px !important;
+        padding: 30px 20px !important;
+    }
 }
