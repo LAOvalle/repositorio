@@ -1,87 +1,516 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Ovalle | Psicólogo General Sanitario</title>
-    <meta name="description" content="Terapia psicológica en Barcelona. Un espacio seguro, cálido y a tu medida.">
-    
-    <!-- Carga de tipografías -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Vinculación del archivo CSS externo -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Variables de Diseño */
+:root {
+    --bg-base: #F9F8F6;
+    --bg-alt: #EFECE7;
+    --text-main: #3A3238;
+    --text-light: #6E666C; 
+    --accent: #D28F79;
+    --accent-hover: #BD7C67;
+    --secondary-accent: #6C8A7B;
+    --border-radius: 16px;
+    --border-light: rgba(0, 0, 0, 0.08);
+}
 
-   <nav>
-        <a href="index.html" class="logo">Luis Ovalle.</a>
-        <div class="nav-links">
-            <a href="index.html" style="color: var(--accent);">Inicio</a>
-            <a href="sobre-mi.html">Sobre mí</a>
-            <a href="index.html#servicios">Cómo te ayudo</a>
-            <a href="#contacto" class="btn" style="padding: 10px 24px; color: white;">Hablemos</a>
-        </div>
-    </nav>
+/* Reset */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
 
-    <header class="hero">
-        <div class="hero-content">
-            <span class="hero-tag">Psicólogo General Sanitario</span>
-            <h1>Terapia a tu medida. <br><i>Sin etiquetas.</i></h1>
-            <p>Un lugar seguro y cálido. No necesitas tener un diagnóstico grave para venir a terapia: a veces basta con querer entenderte, aliviar el malestar o aprender a manejar lo que sientes en un espacio donde puedes ser tú al 100%.</p>
-            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <a href="https://wa.me/34696391056?text=Hola%20Luis,%20me%20gustaría%20solicitar%20una%20primera%20sesión." target="_blank" class="btn">Solicitar primera sesión</a>
-                <a href="#servicios" class="btn btn-outline">Ver opciones</a>
-            </div>
-        </div>
-        <div class="hero-image-wrapper">
-            <div class="hero-image"></div>
-        </div>
-    </header>
+html {
+    scroll-behavior: smooth;
+}
 
-    <section class="quote-section" id="enfoque">
-        <h2>"No hay una única forma correcta de vivir o de sentir. Entender y validar tu realidad es el primer paso."</h2>
-    </section>
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-base); 
+    color: var(--text-main); 
+    line-height: 1.7; 
+    -webkit-font-smoothing: antialiased;
+}
 
-    <section id="servicios" class="services">
-        <div class="services-header">
-            <h2>Cómo podemos trabajar</h2>
-            <p style="color: var(--text-light); max-width: 600px; margin: 20px auto 0;">Si buscas a alguien que te escuche sin juzgarte y respete tus ritmos, estoy aquí para acompañarte.</p>
-        </div>
-        
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">🛋️</div>
-                <h3>Terapia Presencial</h3>
-                <p>Nos vemos en mi consulta en Barcelona. Hablaremos de lo que te preocupa, de tu identidad y de tus propios valores. Un espacio de calma donde aprenderás herramientas prácticas para cuidarte en tu día a día.</p>
-                <div class="price">60€ / sesión</div>
-                <a href="https://wa.me/34696391056?text=Hola%20Luis,%20quiero%20información%20sobre%20terapia%20presencial" target="_blank" class="btn btn-outline" style="width: 100%;">Reservar presencial</a>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">💻</div>
-                <h3>Terapia Online</h3>
-                <p>Hablamos desde donde tú elijas. Ideal si prefieres la comodidad de tu casa o si necesitas controlar tu propio espacio, luces y ruidos para sentirte totalmente a gusto durante nuestro rato juntos.</p>
-                <div class="price">60€ / sesión</div>
-                <a href="https://wa.me/34696391056?text=Hola%20Luis,%20quiero%20información%20sobre%20terapia%20online" target="_blank" class="btn btn-outline" style="width: 100%;">Reservar online</a>
-            </div>
-        </div>
-    </section>
+h1, h2, h3, h4, .logo { 
+    font-family: 'Lora', serif; 
+    font-weight: 500;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
 
-    <footer id="contacto">
-        <p><strong>Luis Ovalle</strong> - Psicólogo General Sanitario (Nº Col. 34183)</p>
-        <p>Barcelona | Terapia Online</p>
-        <br>
-        <nav style="background: transparent; border: none; padding: 0; justify-content: center; backdrop-filter: none;">
-            <!-- Estas páginas deberán crearse en el futuro -->
-            <a href="aviso-legal.html">Aviso Legal</a>
-            <a href="politica-privacidad.html">Política de Privacidad</a>
-            <a href="politica-cookies.html">Política de Cookies</a>
-        </nav>
-        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">© 2026 Luis Ovalle. Todos los derechos reservados.</p>
-    </footer>
+/* Navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(249, 248, 246, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-light);
+}
 
-</body>
-</html>
+.logo { font-size: 1.4rem; text-decoration: none; font-weight: 700; }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+/* Botones */
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover { 
+    background-color: var(--accent-hover); 
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(210, 143, 121, 0.2);
+}
+
+.btn-nav {
+    padding: 10px 22px;
+    color: white !important;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
+}
+
+.btn-outline:hover {
+    background-color: var(--text-main);
+    color: white;
+}
+
+/* Estructura general de secciones */
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.services-header { 
+    text-align: center; 
+    margin-bottom: 60px; 
+}
+
+.services-header h2 { 
+    font-size: 2.5rem; 
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--secondary-accent);
+    margin-bottom: 10px;
+}
+
+.services-header p {
+    color: var(--text-light);
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 8% 90px;
+    min-height: 85vh;
+    gap: 50px;
+}
+
+.hero-content { flex: 1; max-width: 620px; }
+
+.hero-tag {
+    display: inline-block;
+    background-color: var(--bg-alt);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 25px;
+    color: var(--secondary-accent);
+}
+
+.hero h1 {
+    font-size: 3.4rem;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.hero h1 i { font-style: italic; color: var(--accent); }
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 480px;
+    height: 600px;
+    background-color: #E2DDD5;
+    border-radius: 20px 20px 20px 180px;
+    overflow: hidden;
+    background-image: url('https://via.placeholder.com/500x650?text=Luis+Ovalle'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* Cita */
+.quote-section {
+    background-color: var(--secondary-accent);
+    color: white;
+    text-align: center;
+    padding: 80px 8%;
+}
+
+.quote-section h2 {
+    font-size: 2.1rem;
+    color: white;
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+/* Marco Clínico */
+.framework-section {
+    padding: 90px 8%;
+    background-color: var(--bg-alt);
+}
+
+.framework-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.framework-item {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+}
+
+.framework-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.framework-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.framework-item p {
+    color: var(--text-light);
+    font-size: 0.98rem;
+}
+
+/* Servicios / Áreas de trabajo */
+.services {
+    padding: 100px 8%;
+    background-color: var(--bg-base);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover { transform: translateY(-5px); }
+
+.card-icon { font-size: 2.2rem; margin-bottom: 20px; }
+.service-card h3 { font-size: 1.35rem; margin-bottom: 14px; }
+.service-card p { color: var(--text-light); font-size: 0.93rem; }
+
+/* Proceso en pasos */
+.process-section {
+    padding: 100px 8%;
+    background-color: white;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.step-card {
+    padding: 35px 25px;
+    border-left: 3px solid var(--accent);
+    background-color: var(--bg-base);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.step-num {
+    font-size: 2rem;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.step-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+.step-card p { color: var(--text-light); font-size: 0.92rem; }
+
+/* Tarifas */
+.pricing-section {
+    padding: 100px 8%;
+    background-color: var(--bg-base);
+}
+
+.pricing-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 50px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border-light);
+}
+
+.pricing-header {
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 30px;
+    margin-bottom: 35px;
+}
+
+.pricing-header h3 { font-size: 1.6rem; margin-bottom: 10px; }
+
+.pricing-amount {
+    font-size: 3.2rem;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.pricing-duration {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.pricing-note { color: var(--text-light); font-size: 0.95rem; margin-top: 10px; }
+
+.modalities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.modality-item h4 { font-size: 1.15rem; margin-bottom: 10px; }
+.modality-item p { color: var(--text-light); font-size: 0.92rem; margin-bottom: 8px; }
+.modality-condition { color: var(--secondary-accent) !important; font-size: 0.88rem !important; }
+
+.pricing-cta { text-align: center; }
+
+/* FAQ Acordeón */
+.faq-section {
+    padding: 100px 8%;
+    background-color: var(--bg-alt);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 22px 28px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.faq-question::-webkit-details-marker { display: none; }
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 28px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.faq-item[open] .faq-question::after {
+    content: '−';
+}
+
+.faq-item[open] .faq-question {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.faq-answer {
+    padding: 22px 28px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Contacto y Canales de Reserva */
+.contact-section {
+    padding: 100px 8%;
+    background-color: var(--bg-base);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.contact-card {
+    background: white;
+    padding: 40px 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-icon { font-size: 2.2rem; margin-bottom: 15px; }
+.contact-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.contact-card p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 25px; }
+
+.location-banner {
+    background: white;
+    padding: 35px 30px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-accent);
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.location-banner h4 { font-size: 1.2rem; margin-bottom: 8px; }
+.location-banner p { color: var(--text-light); font-size: 0.95rem; }
+.location-note { font-size: 0.85rem !important; margin-top: 6px; opacity: 0.8; }
+
+/* Footer */
+footer {
+    background-color: var(--bg-alt);
+    padding: 60px 8% 30px;
+    text-align: center;
+    border-top: 1px solid var(--border-light);
+}
+
+.footer-content p {
+    color: var(--text-light);
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+}
+
+.footer-legal-nav {
+    margin: 25px 0 20px;
+}
+
+.footer-legal-nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.footer-legal-nav a:hover { color: var(--accent); }
+
+.copyright {
+    font-size: 0.8rem !important;
+    opacity: 0.6;
+    margin-top: 15px;
+}
+
+/* Responsividad */
+@media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hero { flex-direction: column-reverse; padding-top: 40px; text-align: center; }
+    .hero-buttons { justify-content: center; }
+    .hero h1 { font-size: 2.6rem; }
+    .hero-image-wrapper { justify-content: center; width: 100%; }
+    .hero-image { height: 420px; border-radius: 20px; }
+    .quote-section h2 { font-size: 1.6rem; }
+    .pricing-amount { font-size: 2.6rem; }
+}
