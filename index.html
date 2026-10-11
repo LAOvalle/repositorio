@@ -1,516 +1,276 @@
-/* Variables de Diseño */
-:root {
-    --bg-base: #F9F8F6;
-    --bg-alt: #EFECE7;
-    --text-main: #3A3238;
-    --text-light: #6E666C; 
-    --accent: #D28F79;
-    --accent-hover: #BD7C67;
-    --secondary-accent: #6C8A7B;
-    --border-radius: 16px;
-    --border-light: rgba(0, 0, 0, 0.08);
-}
-
-/* Reset */
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body { 
-    font-family: 'Inter', sans-serif; 
-    background-color: var(--bg-base); 
-    color: var(--text-main); 
-    line-height: 1.7; 
-    -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, .logo { 
-    font-family: 'Lora', serif; 
-    font-weight: 500;
-    color: var(--text-main);
-    letter-spacing: -0.02em;
-}
-
-/* Navegación */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background-color: rgba(249, 248, 246, 0.95);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.logo { font-size: 1.4rem; text-decoration: none; font-weight: 700; }
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover, .nav-links a.active { color: var(--accent); }
-
-/* Botones */
-.btn {
-    display: inline-block;
-    background-color: var(--accent);
-    color: white;
-    padding: 14px 32px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-    cursor: pointer;
-    text-align: center;
-}
-
-.btn:hover { 
-    background-color: var(--accent-hover); 
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(210, 143, 121, 0.2);
-}
-
-.btn-nav {
-    padding: 10px 22px;
-    color: white !important;
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: var(--text-main);
-    border: 1px solid var(--text-main);
-}
-
-.btn-outline:hover {
-    background-color: var(--text-main);
-    color: white;
-}
-
-/* Estructura general de secciones */
-.section-container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.services-header { 
-    text-align: center; 
-    margin-bottom: 60px; 
-}
-
-.services-header h2 { 
-    font-size: 2.5rem; 
-    margin-bottom: 12px;
-}
-
-.section-subtitle {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--secondary-accent);
-    margin-bottom: 10px;
-}
-
-.services-header p {
-    color: var(--text-light);
-    max-width: 650px;
-    margin: 0 auto;
-    font-size: 1.05rem;
-}
-
-/* Hero */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 80px 8% 90px;
-    min-height: 85vh;
-    gap: 50px;
-}
-
-.hero-content { flex: 1; max-width: 620px; }
-
-.hero-tag {
-    display: inline-block;
-    background-color: var(--bg-alt);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    margin-bottom: 25px;
-    color: var(--secondary-accent);
-}
-
-.hero h1 {
-    font-size: 3.4rem;
-    line-height: 1.15;
-    margin-bottom: 25px;
-}
-
-.hero h1 i { font-style: italic; color: var(--accent); }
-
-.hero p {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    margin-bottom: 35px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.hero-image-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.hero-image {
-    width: 100%;
-    max-width: 480px;
-    height: 600px;
-    background-color: #E2DDD5;
-    border-radius: 20px 20px 20px 180px;
-    overflow: hidden;
-    background-image: url('https://via.placeholder.com/500x650?text=Luis+Ovalle'); 
-    background-size: cover;
-    background-position: center;
-}
-
-/* Cita */
-.quote-section {
-    background-color: var(--secondary-accent);
-    color: white;
-    text-align: center;
-    padding: 80px 8%;
-}
-
-.quote-section h2 {
-    font-size: 2.1rem;
-    color: white;
-    max-width: 850px;
-    margin: 0 auto;
-    line-height: 1.4;
-}
-
-/* Marco Clínico */
-.framework-section {
-    padding: 90px 8%;
-    background-color: var(--bg-alt);
-}
-
-.framework-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-}
-
-.framework-item {
-    background: white;
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-}
-
-.framework-badge {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-    display: inline-block;
-}
-
-.framework-item h3 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-}
-
-.framework-item p {
-    color: var(--text-light);
-    font-size: 0.98rem;
-}
-
-/* Servicios / Áreas de trabajo */
-.services {
-    padding: 100px 8%;
-    background-color: var(--bg-base);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.service-card {
-    background: white;
-    padding: 40px 30px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    border: 1px solid var(--border-light);
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover { transform: translateY(-5px); }
-
-.card-icon { font-size: 2.2rem; margin-bottom: 20px; }
-.service-card h3 { font-size: 1.35rem; margin-bottom: 14px; }
-.service-card p { color: var(--text-light); font-size: 0.93rem; }
-
-/* Proceso en pasos */
-.process-section {
-    padding: 100px 8%;
-    background-color: white;
-}
-
-.process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.step-card {
-    padding: 35px 25px;
-    border-left: 3px solid var(--accent);
-    background-color: var(--bg-base);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-}
-
-.step-num {
-    font-size: 2rem;
-    font-family: 'Lora', serif;
-    font-weight: 700;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 8px;
-}
-
-.step-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-.step-card p { color: var(--text-light); font-size: 0.92rem; }
-
-/* Tarifas */
-.pricing-section {
-    padding: 100px 8%;
-    background-color: var(--bg-base);
-}
-
-.pricing-card {
-    background: white;
-    border-radius: var(--border-radius);
-    padding: 50px 40px;
-    max-width: 900px;
-    margin: 0 auto;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
-    border: 1px solid var(--border-light);
-}
-
-.pricing-header {
-    text-align: center;
-    border-bottom: 1px solid var(--border-light);
-    padding-bottom: 30px;
-    margin-bottom: 35px;
-}
-
-.pricing-header h3 { font-size: 1.6rem; margin-bottom: 10px; }
-
-.pricing-amount {
-    font-size: 3.2rem;
-    font-family: 'Lora', serif;
-    font-weight: 700;
-    color: var(--accent);
-}
-
-.pricing-duration {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-}
-
-.pricing-note { color: var(--text-light); font-size: 0.95rem; margin-top: 10px; }
-
-.modalities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 35px;
-}
-
-.modality-item h4 { font-size: 1.15rem; margin-bottom: 10px; }
-.modality-item p { color: var(--text-light); font-size: 0.92rem; margin-bottom: 8px; }
-.modality-condition { color: var(--secondary-accent) !important; font-size: 0.88rem !important; }
-
-.pricing-cta { text-align: center; }
-
-/* FAQ Acordeón */
-.faq-section {
-    padding: 100px 8%;
-    background-color: var(--bg-alt);
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 16px;
-    border: 1px solid var(--border-light);
-    overflow: hidden;
-}
-
-.faq-question {
-    padding: 22px 28px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    cursor: pointer;
-    list-style: none;
-    position: relative;
-    user-select: none;
-    transition: background-color 0.2s;
-}
-
-.faq-question::-webkit-details-marker { display: none; }
-
-.faq-question::after {
-    content: '+';
-    position: absolute;
-    right: 28px;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--accent);
-    line-height: 1;
-}
-
-.faq-item[open] .faq-question::after {
-    content: '−';
-}
-
-.faq-item[open] .faq-question {
-    border-bottom: 1px solid var(--border-light);
-}
-
-.faq-answer {
-    padding: 22px 28px;
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.7;
-}
-
-/* Contacto y Canales de Reserva */
-.contact-section {
-    padding: 100px 8%;
-    background-color: var(--bg-base);
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
-}
-
-.contact-card {
-    background: white;
-    padding: 40px 25px;
-    border-radius: var(--border-radius);
-    text-align: center;
-    border: 1px solid var(--border-light);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.contact-icon { font-size: 2.2rem; margin-bottom: 15px; }
-.contact-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-.contact-card p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 25px; }
-
-.location-banner {
-    background: white;
-    padding: 35px 30px;
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--secondary-accent);
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.location-banner h4 { font-size: 1.2rem; margin-bottom: 8px; }
-.location-banner p { color: var(--text-light); font-size: 0.95rem; }
-.location-note { font-size: 0.85rem !important; margin-top: 6px; opacity: 0.8; }
-
-/* Footer */
-footer {
-    background-color: var(--bg-alt);
-    padding: 60px 8% 30px;
-    text-align: center;
-    border-top: 1px solid var(--border-light);
-}
-
-.footer-content p {
-    color: var(--text-light);
-    font-size: 0.88rem;
-    margin-bottom: 8px;
-}
-
-.footer-legal-nav {
-    margin: 25px 0 20px;
-}
-
-.footer-legal-nav a {
-    color: var(--text-main);
-    text-decoration: none;
-    margin: 0 12px;
-    font-size: 0.85rem;
-    transition: color 0.2s;
-}
-
-.footer-legal-nav a:hover { color: var(--accent); }
-
-.copyright {
-    font-size: 0.8rem !important;
-    opacity: 0.6;
-    margin-top: 15px;
-}
-
-/* Responsividad */
-@media (max-width: 900px) {
-    .nav-links { display: none; }
-    .hero { flex-direction: column-reverse; padding-top: 40px; text-align: center; }
-    .hero-buttons { justify-content: center; }
-    .hero h1 { font-size: 2.6rem; }
-    .hero-image-wrapper { justify-content: center; width: 100%; }
-    .hero-image { height: 420px; border-radius: 20px; }
-    .quote-section h2 { font-size: 1.6rem; }
-    .pricing-amount { font-size: 2.6rem; }
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Ovalle | Psicólogo General Sanitario en Barcelona y Online</title>
+    <meta name="description" content="Terapia cognitivo-conductual y contextual (ACT) en Barcelona y Online. Espacio afirmativo y libre de juicio. Colegiado Nº 34183.">
+    
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navegación principal -->
+    <nav>
+        <a href="index.html" class="logo">Luis Ovalle.</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="sobre-mi.html">Sobre mí</a>
+            <a href="#servicios">Áreas de trabajo</a>
+            <a href="#proceso">Cómo trabajamos</a>
+            <a href="#tarifas">Tarifas</a>
+            <a href="#faq">Preguntas frecuentes</a>
+            <a href="#contacto" class="btn btn-nav">Pedir cita</a>
+        </div>
+    </nav>
+
+    <!-- Hero / Encabezado -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Psicólogo General Sanitario · Col. 34183</span>
+            <h1>Terapia a tu medida. <br><i>Sin etiquetas.</i></h1>
+            <p>Atención psicológica basada en evidencia científica (TCC y ACT). Un espacio seguro, riguroso y adaptado a tus necesidades donde abordar el malestar, comprender tus procesos y adquirir herramientas funcionales para tu día a día.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn">Pedir cita</a>
+                <a href="#servicios" class="btn btn-outline">Ver áreas de trabajo</a>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <div class="hero-image"></div>
+        </div>
+    </header>
+
+    <!-- Cita / Manifiesto -->
+    <section class="quote-section">
+        <h2>"Entender el contexto y validar tu historia es el punto de partida para construir cambios significativos."</h2>
+    </section>
+
+    <!-- Enfoque Clínico / Marco Teórico -->
+    <section class="framework-section">
+        <div class="section-container">
+            <div class="framework-grid">
+                <div class="framework-item">
+                    <span class="framework-badge">Metodología</span>
+                    <h3>Terapias Contextuales y Basadas en la Evidencia</h3>
+                    <p>La intervención se fundamenta en la <strong>Terapia de Aceptación y Compromiso (ACT)</strong> y la <strong>Terapia Cognitivo-Conductual (TCC)</strong>. No trabajamos desde la imposición de pautas genéricas ni la patologización, sino analizando la función que cada conducta, pensamiento o síntoma cumple en tu contexto vital.</p>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-badge">Perspectiva</span>
+                    <h3>Enfoque Afirmativo e Inclusivo</h3>
+                    <p>Atención libre de sesgos normativos. Especial sensibilidad hacia los estresores de las diversidades afectivo-sexuales y de género (LGTBIQA+), así como el acompañamiento adaptado a divergencias del neurodesarrollo en población adulta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Trabajo / Especialidades -->
+    <section id="servicios" class="services">
+        <div class="services-header">
+            <span class="section-subtitle">Especialidades</span>
+            <h2>Áreas de Intervención</h2>
+            <p>Consultas individualizadas para personas adultas, disponibles en modalidad presencial (Barcelona) y online.</p>
+        </div>
+        
+        <div class="services-grid">
+            <article class="service-card">
+                <div class="card-icon">🌪️</div>
+                <h3>Ansiedad y Regulación Emocional</h3>
+                <p>Abordaje de cuadros de estrés crónico, sobrepensamiento (rumiación), ataques de pánico y sensación de desbordamiento. Trabajo centrado en identificar disparadores y desarrollar tolerancia al malestar.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="card-icon">🏳️‍🌈</div>
+                <h3>Psicología Afirmativa LGTBIQA+</h3>
+                <p>Espacio seguro para explorar identidad, orientación afectiva y gestión del estrés de minorías. Acompañamiento en procesos de salida del armario, discriminación, vivencias relacionales y reafirmación personal.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="card-icon">🧠</div>
+                <h3>Neurodivergencia en Adultos</h3>
+                <p>Acompañamiento a personas adultas con sospecha o diagnóstico de condición del espectro autista o TDAH. Foco en comprender el propio funcionamiento cognitivo, prevenir el burnout autista y desaprender el masking lesivo.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="card-icon">🧭</div>
+                <h3>Crisis Vitales y Autoestima</h3>
+                <p>Acompañamiento en momentos de cambio (rupturas, duelos, transiciones profesionales o existenciales). Reorientación de objetivos congruentes con los propios valores vitales.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Cómo Trabajamos / Flujo de Atención -->
+    <section id="proceso" class="process-section">
+        <div class="section-container">
+            <div class="services-header">
+                <span class="section-subtitle">Estructura</span>
+                <h2>Cómo se desarrolla el proceso</h2>
+                <p>Un encuadre terapéutico claro y transparente desde el primer momento.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step-card">
+                    <span class="step-num">01</span>
+                    <h3>Sesión Inicial de Exploración</h3>
+                    <p>Encuentro de 50 minutos para clarificar tu motivo de consulta, recoger tu historia relevante y determinar si mi metodología es la adecuada para tus objetivos.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">02</span>
+                    <h3>Intervención y Trabajo Activo</h3>
+                    <p>Sesiones de 50 minutos con periodicidad habitualmente <strong>quincenal (dos veces al mes)</strong>. Este ritmo permite espacio suficiente para aplicar y consolidar herramientas en tu entorno real entre consultas.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">03</span>
+                    <h3>Seguimiento y Cierre</h3>
+                    <p>Evaluación periódica de progresos conforme a tus objetivos. Cuando las herramientas se asientan, se espacian las sesiones hasta el alta terapéutica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifas y Modalidades -->
+    <section id="tarifas" class="pricing-section">
+        <div class="section-container">
+            <div class="services-header">
+                <span class="section-subtitle">Transparencia</span>
+                <h2>Tarifas y Modalidades</h2>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Sesión Individual</h3>
+                    <div class="pricing-amount">60€ <span class="pricing-duration">/ 50 minutos</span></div>
+                    <p class="pricing-note">Tarifa única tanto para primera sesión como para sesiones de seguimiento.</p>
+                </div>
+
+                <div class="modalities-grid">
+                    <div class="modality-item">
+                        <h4>📍 Modalidad Presencial</h4>
+                        <p><strong>Ubicación:</strong> Consulta en Psicorosselló (Carrer del Rosselló, 17, Entresol 2, Eixample, 08029 Barcelona).</p>
+                        <p class="modality-condition"><em>Aviso de agenda:</em> Al gestionarse en despachos sanitarios compartidos, las reservas presenciales requieren concertarse con un <strong>mínimo de 7 días de antelación</strong>.</p>
+                    </div>
+                    <div class="modality-item">
+                        <h4>💻 Modalidad Online</h4>
+                        <p><strong>Plataforma:</strong> Videoconsulta segura desde el lugar que elijas.</p>
+                        <p class="modality-condition">Misma validez clínica y efectividad metodológica. Flexibilidad de agenda sin desplazamientos.</p>
+                    </div>
+                </div>
+
+                <div class="pricing-cta">
+                    <a href="#contacto" class="btn">Solicitar disponibilidad</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes (FAQ Acordeón) -->
+    <section id="faq" class="faq-section">
+        <div class="section-container">
+            <div class="services-header">
+                <span class="section-subtitle">Resolución de dudas</span>
+                <h2>Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary class="faq-question">¿En qué consiste el modelo de trabajo con TCC y ACT?</summary>
+                    <div class="faq-answer">
+                        <p>La Terapia Cognitivo-Conductual (TCC) y la Terapia de Aceptación y Compromiso (ACT) son modelos con respaldo empírico. En lugar de forzar el pensamiento positivo o intentar eliminar las emociones a la fuerza, trabajamos en relacionarte de forma distinta con el malestar interno para que puedas tomar decisiones coherentes con lo que de verdad te importa.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Existe diferencia de eficacia entre la terapia presencial y la online?</summary>
+                    <div class="faq-answer">
+                        <p>La evidencia clínica actual demuestra que la intervención psicológica online posee la misma eficacia que el formato presencial para la mayoría de problemáticas. La elección responde a tu preferencia logística o a tu comodidad en el entorno de consulta.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cómo se estructura la primera sesión?</summary>
+                    <div class="faq-answer">
+                        <p>Es una toma de contacto estructurada de 50 minutos. Me explicas la situación que te lleva a consulta, clarificamos tus dudas sobre la forma de trabajar y trazamos un encuadre inicial sobre si podemos abordar la demanda de manera conjunta.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Por qué la periodicidad recomendada es bimensual (quincenal)?</summary>
+                    <div class="faq-answer">
+                        <p>Trabajar con un intervalo de 14 días permite poner a prueba las estrategias acordadas en sesión, observar qué obstáculos surgen en tu entorno real y evitar la dependencia del espacio terapéutico, optimizando la autonomía y el coste económico del proceso.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Por qué se solicitan 7 días de antelación para la cita presencial?</summary>
+                    <div class="faq-answer">
+                        <p>Las sesiones presenciales se realizan en las instalaciones de Psicorosselló (Barcelona). La reserva de despachos físicos exige una gestión de agenda previa para garantizar la disponibilidad y privacidad de tu consulta.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Canales de Reserva / Contacto Directo -->
+    <section id="contacto" class="contact-section">
+        <div class="section-container">
+            <div class="services-header">
+                <span class="section-subtitle">Contacto</span>
+                <h2>Vías para solicitar cita</h2>
+                <p>Elige el canal que te resulte más cómodo para consultar disponibilidad o formular dudas previas.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p>Respuesta rápida para consultas breves de disponibilidad.</p>
+                    <a href="https://wa.me/34696391056?text=Hola%20Luis,%20me%20gustar%C3%ADa%20consultar%20disponibilidad%20para%20una%20primera%20sesi%C3%B3n." target="_blank" class="btn btn-outline">Escribir por WhatsApp</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📅</div>
+                    <h3>Doctoralia</h3>
+                    <p>Revisa la agenda en tiempo real y reserva directamente tu franja horaria.</p>
+                    <!-- Reemplaza el enlace con la URL exacta de tu perfil de Doctoralia -->
+                    <a href="https://www.doctoralia.es" target="_blank" class="btn btn-outline">Ver agenda en Doctoralia</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Correo electrónico</h3>
+                    <p>Ideal si prefieres detallar con más calma tu situación.</p>
+                    <a href="mailto:info@luisovalle.com?subject=Solicitud%20de%20primera%20sesi%C3%B3n%20terap%C3%A9utica" class="btn btn-outline">Enviar un correo</a>
+                </div>
+            </div>
+
+            <div class="location-banner">
+                <h4>📍 Consulta Presencial en Barcelona</h4>
+                <p><strong>Psicorosselló:</strong> Carrer del Rosselló, 17, Entresol 2, Eixample, 08029 Barcelona</p>
+                <p class="location-note">Atención presencial bajo cita concertada previa | Consultas online a nivel global</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <p><strong>Luis Ovalle</strong> — Psicólogo General Sanitario</p>
+            <p>Nº Colegiado 34183 (Col·legi Oficial de Psicologia de Catalunya)</p>
+            <p>Atención Presencial en Barcelona (Psicorosselló) y Consulta Online</p>
+            
+            <nav class="footer-legal-nav">
+                <a href="aviso-legal.html">Aviso Legal</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="politica-cookies.html">Política de Cookies</a>
+            </nav>
+            <p class="copyright">© 2026 Luis Ovalle. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
